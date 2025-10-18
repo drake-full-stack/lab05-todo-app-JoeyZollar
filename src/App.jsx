@@ -27,7 +27,7 @@ function App() {
   const handleToggle = (indexToToggle) => {
     setTasks(
       tasks.map((task, index) => {
-        // If this is the task we want to toggle
+        // Check if this is the task we want to toggle
         if (index === indexToToggle) {
           // Return a new object with completed flipped
           return {...task, completed: !task.completed};
@@ -57,7 +57,7 @@ function App() {
 
       <ul className="task-list">
         {tasks.map((task, index) => (
-          <li key={index} className="task-item">
+          <li key={index} className={task.completed ? "task-completed task-item" : "task-item"}>
             <input 
               type="checkbox" 
               checked={task.completed}
